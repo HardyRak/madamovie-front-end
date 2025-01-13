@@ -1,0 +1,17 @@
+<ion-card>
+  <ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-title>-{{data.nom}}-</ion-title>
+        </ion-col>
+      </ion-row>
+    <p>Prix: {{data.prix}} Ar</p>
+    </ion-grid>
+  </ion-card-header>
+  <ion-card-content>
+      <ion-item *ngFor="let categorie of data.categories">
+        <ion-text>{{categorie.nom}}</ion-text>
+      </ion-item>
+  </ion-card-content>
+</ion-card>

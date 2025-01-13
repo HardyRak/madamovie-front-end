@@ -1,0 +1,27 @@
+.circle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    right: 12px; /* Ajustez la position selon vos besoins */
+    transform: translateY(-50%);
+    background-color: #007bff; /* Couleur de fond du cercle */
+    width: 32px; /* Taille du cercle */
+    height: 32px; /* Taille du cercle */
+    border-radius: 50%; /* Assurez-vous que le div soit un cercle */
+    color: #fff; /* Couleur de l'icône */
+    font-size: 24px; /* Taille de l'icône */
+  }
+
+  ion-input {
+    --border: 1px solid #ccc; /* Couleur et épaisseur de la bordure */
+    --border-radius: 4px; /* Arrondir les coins de la bordure */
+    --padding: 8px; /* Espacement interne de l'input */
+  }
+
+  .duration-text {
+    font-size: 0.85em;    // Réduire la taille de la police
+    color: #808080;       // Couleur grise
+    margin: 4px 0 0 0;    // Ajouter une marge au-dessus pour un peu d'espacement
+  }

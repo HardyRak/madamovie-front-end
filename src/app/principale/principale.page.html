@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Principale</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-title>Recherche</ion-title>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <form (submit)="recherchePagine()">
+        <ion-item>
+          <ion-input type="text" name="motCle" [(ngModel)]="motCle" required>
+            <div slot="label">Mot clé:</div>
+          </ion-input>
+          <ion-button *ngIf="motCle!==''" expand="full" type="submit">Recherche</ion-button>
+        </ion-item>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="recherche.length!=0">
+    <ion-card-header>
+      <ion-item>
+        <ion-title>Resultats</ion-title>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let film of recherche">
+          <ion-avatar slot="start">
+            <img [src]="film.image" alt="{{ film.nom }}"/>
+          </ion-avatar>
+          <ion-label>{{ film.nom }}</ion-label>
+          <div class="circle-icon" slot="end" (click)="toFilm(film)">
+            <ion-icon name="chevron-forward-circle"></ion-icon>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    <ion-footer>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="previousPage()" [disabled]="page === 0">Précédent</ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button (click)="nextPage()" [disabled]="!hasMoreItems">Suivant</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-title>Liste des films</ion-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let film of listeFilm">
+          <ion-avatar slot="start">
+            <img [src]="film.image" alt="{{ film.title }}"/>
+          </ion-avatar>
+          <ion-label>
+            {{film.nom}}
+            <p class="duration-text">Durée: {{ film.dure }} minutes</p>
+          </ion-label>
+          <div class="circle-icon" slot="end" (click)="toFilm(film)">
+            <ion-icon name="chevron-forward-circle"></ion-icon>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    <ion-footer>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="previousPageMain()" [disabled]="principalListPages === 0">Précédent</ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button (click)="nextPageMain()" [disabled]="!hasMoreIthemMain">Suivant</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-card> 
+  
+</ion-content>

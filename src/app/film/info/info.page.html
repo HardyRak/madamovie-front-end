@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Streaming</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon *ngIf="isFav"  name="heart-outline" class="favorite-icon" style="color: red;"></ion-icon>
+      <ion-icon *ngIf="isFav==false"  name="heart-outline" class="favorite-icon"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" scrollEvents="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-title>-{{film.nom}}-</ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="cover-photo">
+    <img [src]="film.image" alt="Photo de couverture">
+  </div>
+  
+  <div class="synopsis" style="margin-top: 5px;">
+    <h2>Synopsis</h2>
+    <p>{{film.synopsis}}</p>
+  </div>
+  
+  <div class="video-container">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-title>Regardé</ion-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+      <video #videoPlayer controls [poster]="film.img" (error)="errorVideo()">
+        <source [src]="videoUrl" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+  </div>
+</ion-content>

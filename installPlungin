@@ -1,0 +1,36 @@
+npm install cordova
+ionic cordova platform add android
+si projet capacitor => "ionic integrations disable capacitor" avant de faire le commande precedent
+npm install @ionic-native/hotspot
+ionic cordova plugin add cordova-plugin-hotspot
+
+
+
+BUILD APK
+    -install JDK and SDK
+    -install gradle
+    -telecharge le fichier https://services.gradle.org/distributions/gradle-8.7-bin.zip et extracté dans /home/hardy/.gradle/wrapper/dists/gradle-8.7-bin/bhs2wmbdwecv87pi65oeuq5iu
+    -ionic build --prod
+    -commande=cordova build android --prod --release
+    -fichier aab dans android/app/output/release/bundle/.....aab
+    -avoir bundletool.jar pour genere l'apk par le fichier aab
+    -creation de keystore pour l'appication=> keytool -genkey -v -keystore my-release-key.jks -keyalg RSA  -keysize 2048 -validity 10000 -alias my-key-alias
+    -creation de signe de l'application=> 
+    -commande =>
+        java -jar "bundletool.jar" build-apks --bundle=app-release.aab --output=output.apks --ks=my-release-key.jks --ks-key-alias=my-key-alias --ks-pass=pass:manoela --key-pass=pass:manoela --mode=universal
+    -extracte output.apks et vous avez l fichier apk
+    -Start emulateur
+    -adb install output/universal.apk
+
+DEVTOOL
+    ->change l'adb de l'emulateur par l'adb de l'android SDK
+    -> commande => ionic cordova run android -l
+    
+
+
+creation icon pour l'application
+    image 1024x1024
+    nom de l'image icon.png
+    placer dans resources/ (remplacé le logo par defaut sur votre logo)
+    npm install -g cordova-res
+    commande => cordova-res

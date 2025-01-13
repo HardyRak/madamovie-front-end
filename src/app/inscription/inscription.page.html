@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-title>-Inscription-</ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <form (ngSubmit)="inscription()">
+    <ion-list>
+      <ion-item>
+        <ion-input [(ngModel)]="formData.nom" type="text" name="nom" placeholder="Votre nom" required>
+          <div slot="label">Nom:</div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="formData.prenom" type="text" name="prenom" placeholder="Votre prénom" required>
+          <div slot="label">Prénom:</div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="formData.naissance" type="date" name="naissance" placeholder="Votre date de naissance" required>
+          <div slot="label">Adresse:</div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="formData.cin" type="text" name="cin" placeholder="Votre Numero d'identité" required>
+          <div slot="label">CIN:</div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="formData.adresse" type="text" name="adresse" placeholder="Votre adresse" required>
+          <div slot="label">Adresse:</div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Genre: </ion-label>
+        <ion-select [(ngModel)]="formData.genre" name="genre">
+          <ion-select-option *ngFor="let genre of genres"  [value]="genre.idGenre">{{genre.genre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Devise par defaut: </ion-label>
+        <ion-select [(ngModel)]="formData.devise" name="devise">
+          <ion-select-option *ngFor="let devise of devises"  [value]="devise.idDevise">{{devise.devise}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="formData.motDePasse" type="password" name="motDePasse" placeholder="Votre mot de passe" required>
+          <div slot="label">Mot de passe:</div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="confirmation" type="password" name="confirmation" placeholder="Confirmation du mot de passe" required>
+          <div slot="label">Confirmation:</div>
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full" type="submit">-Validé mon inscription-</ion-button>
+  </form>
+  <a class="ion-button" href="/login">Revenir vers la page de login</a>
+  <ion-text color="danger" *ngIf="erreur">
+    <p>{{ erreur }}</p>
+  </ion-text>
+</ion-content>

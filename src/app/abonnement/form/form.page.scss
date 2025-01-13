@@ -1,0 +1,28 @@
+.circle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    right: 12px; /* Ajustez la position selon vos besoins */
+    transform: translateY(-50%);
+    background-color: #007bff; /* Couleur de fond du cercle */
+    width: 45px; /* Taille du cercle */
+    height: 32px; /* Taille du cercle */
+    border-radius: 10%; /* Assurez-vous que le div soit un cercle */
+    color: #fff; /* Couleur de l'icône */
+    font-size: 15px; /* Taille de l'icône */
+  }
+
+  .error {
+    --background: #edd4d4; /* Couleur de fond vert clair */
+    color: #571515; /* Couleur du texte vert foncé */
+    border-left: 4px solid #a72828; /* Bordure verte */
+  }
+
+  .reussi {
+    --background: #d4edda; /* Couleur de fond vert clair */
+    --color: #155724; /* Couleur du texte vert foncé */
+    border-left: 4px solid #28a745; /* Bordure verte */
+  }
+  

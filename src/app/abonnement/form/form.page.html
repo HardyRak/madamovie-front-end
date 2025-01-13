@@ -1,0 +1,95 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Abonnement ou reabonnement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-title>-Nouvel abonnement-</ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card>
+    <ion-item>
+      <ion-card-header>
+        <ion-title>
+          <ion-col class="ion-text-center">
+            Etat actuel
+          </ion-col>
+        </ion-title>
+      </ion-card-header>
+    </ion-item>
+
+    <ion-card *ngIf="isAbonne">
+      <ion-card-header>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-text-center">
+              <ion-title>-{{client.abonnement.bouquet.nom}}-</ion-title>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-header>
+      <ion-card-content>
+          <ion-item *ngFor="let categorie of client.abonnement.bouquet.categories">
+            <ion-text>{{categorie.nom}}</ion-text>
+          </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <form (submit)="formSubmit()" *ngIf="!isAbonne">
+      <ion-item>
+        <ion-label>Bouquet: </ion-label>
+        <ion-select [(ngModel)]="formData.bouquet" name="bouquet">
+          <ion-select-option *ngFor="let bouquet of bouquets"  [value]="bouquet">{{bouquet.nom}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="reference" [(ngModel)]="formData.ref" required>
+          <div slot="label">Réf du transaction:</div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button expand="full" type="submit">Validé</ion-button>
+      </ion-item>
+    </form>
+    <ion-card *ngIf="erreur" class="error">
+      <ion-card-header>
+        <ion-card-title style="color: #571515;">{{erreur}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  
+    <ion-card *ngIf="ok" class="reussi">
+      <ion-card-header>
+        <ion-card-title style="color: #155724;">{{ok}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-card-header>
+        <ion-title>
+          <ion-col class="ion-text-center">
+            Information des bouquets
+          </ion-col>
+        </ion-title>
+      </ion-card-header>
+    </ion-item>
+    <ion-card-content>
+      <ion-card *ngFor="let bouquet of bouquets">
+        <ion-card-header>
+          <ion-card-title>{{bouquet.nom}}</ion-card-title>
+          <div class="circle-icon" (click)="clickDetailBouquet($event,bouquet)">
+            Détail
+          </div>
+        </ion-card-header>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

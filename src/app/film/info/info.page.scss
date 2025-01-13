@@ -1,0 +1,57 @@
+.cover-photo {
+  width: 100%;
+  height: 200px; /* Ajustez la hauteur selon vos besoins */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: auto; /* Ajustez cette valeur selon vos besoins */
+    height: auto; /* Ajustez cette valeur selon vos besoins */
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+  
+  .synopsis {
+    padding: 16px;
+    background-color: #000000;
+    h2 {
+      margin-top: 0;
+    }
+  }
+  
+  .launch-film {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    ion-button {
+      --background: #3880ff; /* Couleur du bouton */
+    }
+  }
+  
+  .video-container {
+    width: 100%;  /* Ajustez selon votre préférence */
+    height: auto;  /* Pour conserver les proportions */
+    max-height: 80%;  /* Pour ne pas dépasser l'écran */
+    background-color: black;  /* Optionnel : pour avoir un fond noir */
+    margin-top: 15px;
+  }
+  
+  video {
+    width: 100%;
+    height: auto;  /* Conserve les proportions de la vidéo */
+    max-height: 100%;  /* Pour que la vidéo ne dépasse pas le conteneur */
+    border: 2px solid white;  /* Optionnel : ajoute une bordure blanche */
+  }
+  
+  .favorite-icon {
+    font-size: 24px;
+    margin-right: 16px;
+    transition: color 0.3s;
+  }
+
+
+  
