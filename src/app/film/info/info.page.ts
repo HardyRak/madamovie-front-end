@@ -23,7 +23,8 @@ export class InfoPage implements OnInit {
     const navigation = this.route.getCurrentNavigation();
     this.film = navigation?.extras?.state?.['data'];
     this.token=localStorage.getItem('access_token');
-    this.videoUrl= `${environment.apiUrl}/film/stream/${this.film.idFilm}/${this.token}`;
+    // this.videoUrl= `${environment.apiUrl}/film/stream/${this.film.idFilm}/${this.token}`;
+    this.videoUrl="https://u.pcloud.link/publink/show?code=XZt4dJ5ZvUfnrUd90sJLr6eDphFR8bQy9clV";
   }
 
   @ViewChild('videoPlayer', { static: false }) videoPlayer!: ElementRef ;
